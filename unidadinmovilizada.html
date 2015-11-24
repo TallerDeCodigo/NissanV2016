@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="appUnidadInm">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Dashboard - Nissan SAD</title>
+<!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">NISSAN SAD</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="unidadinmovilizada.html">Unidad Inmovilizada <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Sistema de llaves</a></li>
+            <li><a href="index.html">Información de partes en orden pendiente y seguimiento a pedido</a></li>
+            <li><a href="#">Información Técnica</a></li>
+            <li><a href="#">Consultra relacionada con precio de partes</a></li>
+            <li><a href="#">Otras solicitudes</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">UNIDAD INMOVILIZADA</h1>
+          <div class="row placeholders">
+            <a  href="unidadinmovilizada-form.html" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+            </a>
+            <a  href="#" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a  href="#" class="btn btn-default" aria-label="Left Align">
+              <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+            </a>
+          </div>  
+          <div class="table-responsive" ng-controller="unidadInmCtrl">
+            <table class="table table-bordered" ng-show="filteredItems > 0" >
+              <thead>
+                <tr>
+                  <th>#</th> <!-- 1 -->
+                  <th>Cierre / Modelo</th>
+                  <th>No. Ticket</th>
+                  <th>No. de Parte</th>
+                  <th>Fecha</th>
+                  <th>Estatus</th>
+                  <th>Escalonamiento Activo</th>
+                  <th></th>
+                  <th>Escalonamiento</th>
+                  <th>Fecha Escalonado</th> <!-- 10 -->
+                  <th>Fecha Propuesta</th>
+                  <th>Fecha PO</th>
+                  <th>Número de PO</th>
+                  <th>Clave de Agencia</th>
+                  <th>Proveedor</th>
+                  <th>Descripción</th>
+                  <th>Remisión o Pedido Nissan</th>
+                  <th>Referencia</th>
+                  <th>Factura</th>
+                  <th>Cantidad</th> <!-- 20 -->
+                  <th>Fecha Referencia</th>                  
+                  <th>Fecha #1</th>
+                  <th>Fecha #2</th>
+                  <th>Fecha #3</th>
+                  <th>Origen de reparación de servicio</th>
+                  <th>Asesor de servicio</th>
+                  <th>Tipo de Venta</th>
+                  <th>VIN</th>
+                  <th>Modelo</th>
+                  <th>Año</th> <!-- 30 -->
+                  <th>Placas</th>
+                  <th>Kms</th>
+                  <th>Tipo Cliente</th>
+                  <th>Nombre del Cliente</th>
+                  <th>Lada</th>
+                  <th>Teléfono</th>
+                  <th>Celular</th>
+                  <th>Email</th>
+                  <th>Garantia</th>
+                  <th>Repación</th>
+                  <th>Accidente</th> <!-- 41 -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                  <td>{{data.Id}}</td>
+                  <td>{{data.cierreModelo}}</td>
+                  <td>{{data.NoTicket}}</td>
+                  <td>{{data.NoParte}}</td>
+                  <td>{{data.Fecha}}</td>
+                  <td><span class="label {{data.Color}}">{{data.Status}}</span></td>
+                  <td>{{data.TipoCierre}}</td>
+                  <td>{{data.EscalActivo}}</td>
+                  <td>{{data.activoescalonamiento}}</td>
+                  <td>{{data.ultimoescalonado}}</td>
+                  <td>{{data.PsolucionOtros}}</td>
+                  <td>{{data.FechaPO}}</td>
+                  <td>{{data.NumeroPO}}</td>
+                  <td>{{data.analistaInventarios}}</td>
+                  <td>{{data.infoTec}}</td>
+                  <td>{{data.jr_manager}}</td>
+                  <td>{{data.Id}}</td>
+                  <td>{{data.Id}}</td>
+                  <td>{{data.Id}}</td>
+                  <td>{{data.Factura}}</td>
+                  <td>{{data.Id}}</td>
+                  <td>{{data.Id}}</td>
+                  <td>{{data.Fecha1}}</td>
+                  <td>{{data.Fecha2}}</td>
+                  <td>{{data.Fecha3}}</td>
+                  <td>{{data.Id}}</td>
+                  <td>{{data.TipoVenta}}</td>
+                  <td>{{data.NoSerie}}</td>
+                  <td>{{data.Modelo}}</td>
+                  <td>{{data.Anio}}</td>
+                  <td>{{data.Kms}}</td>
+                  <td>{{data.TipoCliente}}</td>
+                  <td>{{data.Cliente}}</td>
+                  <td>{{data.Lada}}</td>
+                  <td>{{data.Telefono}}</td>
+                  <td>{{data.Celular}}</td>
+                  <td>{{data.Email}}</td>
+                  <td>{{data.Garantia}}</td>
+                  <td>{{data.Reparacion}}</td>
+                  <td>{{data.Accidente}}</td>
+                   <td>{{data.Accidente}}</td>
+                  </tr> 
+              </tbody>
+            </table>
+          <div class="col-md-12" ng-show="filteredItems == 0">
+              <div class="col-md-12">
+                  <h4>Sin resultados</h4>
+              </div>
+          </div>
+          <div class="col-md-12" ng-show="filteredItems > 0">    
+              <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+    <script src="app/app.js"></script> 
+  </body>
+</html>

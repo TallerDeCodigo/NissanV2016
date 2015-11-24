@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="appUnidadInm">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Nissan SAD</title>
+<!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/logo_nissan.png" style="width: 50%;"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="unidadinmovilizada.html">Unidad Inmovilizada </a></li>
+            <li><a href="#">Sistema de llaves</a></li>
+            <li><a href="index.html">Información de partes en orden pendiente y seguimiento a pedido</a></li>
+            <li class="active"><a href="#">Información Técnica <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Consultra relacionada con precio de partes</a></li>
+            <li><a href="#">Otras solicitudes</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Información Técnica</h1>
+          <div class="table-responsive">
+                  <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Ingrese los datos del ticket
+                        </div>
+                      <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Tipo de catálogo:</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>Tipo Libro
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">Fast DVD
+                                            </label>                                           
+                                        </div>    
+                                        <div class="form-group">
+                                            <label>Fecha de edición:</label>
+                                            <input class="form-control">
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Razón de la consulta:</label>
+                                            <select class="form-control">
+                                                <option>No. de parte no esta en catalogo</option>
+                                                <option>No. de parte inexistente</option>
+                                                <option>Error en catálogo</option>
+                                                <option>Intercambiabilidad no corresponde (ICA)</option>
+                                                <option>Parte física no corresponde</option>
+                                                <option>VIN no reconocido por catálogo </option>
+                                            </select>
+                                        </div>
+                                        <h3>Información de la unidad</h3>
+                                        <div class="form-group">
+                                            <label>No. de Serie (VIN):</label>
+                                            <input class="form-control" placeholder="3N1CK3CD7GL228312">
+                                        </div>
+                                        <h3>Parte requerida</h3>
+                                        <div class="form-group">
+                                            <label>Sección:</label>
+                                            <input class="form-control" placeholder="820">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Código de la parte:</label>
+                                            <input class="form-control" placeholder="11044">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>No. de Parte:</label>
+                                            <input class="form-control" placeholder="11044F4300">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>No. de parte grabado o etiqueta sobre la parte usada:</label>
+                                            <input class="form-control" placeholder="11044F4300">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripción del parte:</label>
+                                            <input class="form-control" placeholder="CINTAS TRAS DER">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Color de la parte:</label>
+                                            <input class="form-control" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripción del problema:</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                        
+                                      
+                                       
+                                    </form>
+                                </div>
+                                 <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Anexo 1</label>
+                                        <input type="file">
+                                        <p class="help-block">Subir fotografía de la parte original del vehículo (Max. 1024kb Formato: PDF).</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Anexo 2</label>
+                                        <input type="file">
+                                        <p class="help-block">Subir fotografía de la parte recibida de Nissan Mexicana (Max. 1024kb Formato: PDF).</p>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Enviar</button>
+                                    <button type="reset" class="btn btn-default">Cancelar</button>    
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+           
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+    <script src="app/app.js"></script> 
+  </body>
+</html>
