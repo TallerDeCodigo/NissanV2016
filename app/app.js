@@ -10,7 +10,6 @@ app.filter('startFrom', function() {
     }
   });
 
-
 // ----------------- VOR ----------------------
 
 var unidadInmApp = angular.module('appUnidadInm', ['ui.bootstrap']);

@@ -6,7 +6,6 @@
  * @copyright Copyright &copy; 2015, lisa.com.mx
  */
 
-
 //Conexión DB
 include('../includes/config.php');
 
